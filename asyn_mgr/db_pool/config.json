@@ -1,0 +1,24 @@
+{
+	"comment":[
+		"conn_cnt:并发连接数",
+		"data_cnt:总数据量",
+		"date_len:每条数据长度",
+		"index_begin:索引开始id",
+		"index_end:索引结束id",
+		"index_offset:每个id偏移量,避免过度集中都是热数据",
+		"action:insert、update:更新整个user、upbase:base更新、delete、query"
+	],
+    "db_url":"192.168.18.43",
+	"db_user":"root",
+	"db_passwd":"123456",
+	"db_dbname":"tianfuguang",
+	"db_table":"logic_user_0",
+
+	"conn_cnt":2,
+	"data_cnt":2,
+	"date_len":1234,
+	"index_begin":1001,
+	"index_end":20000,
+    "index_offset":1234,
+	"actions":["upbase"]
+}

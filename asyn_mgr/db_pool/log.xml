@@ -1,0 +1,44 @@
+<config>
+    <cache>10240</cache> <!-- >0开启额外的协程处理日志记录-->
+    <!-- level is (:?debug|info|warn|error|crit) -->
+    <level>debug</level>
+    <caller>true</caller> <!--是否开启记录调用方的文件名和行号，有性能损失-->
+    <caller_skip>1</caller_skip> <!--是否开启记录调用方的文件名和行号，有性能损失-->
+    <!-- level is (:?debug|info|warn|error|crit) 当日志级别大于此时，添加堆栈信息-->
+    <stack_level>crit</stack_level>
+    <backends>
+        <!-- level is (:?debug|info|warn|error|crit) -->
+        <level>debug</level> <!--dist-->
+        <!--
+           %D - Date (20060102)
+           %d - Date (01/02/06)
+           %T - Time (20060102 15:04:05.000)
+           %t - Time (01/02/06 15:04:05)
+           %L - Level (DEBUG|INFO|WARN|ERROR|CRIT)
+           %l - Level (debug|info|warn|error|crit)
+           %V - Level (DEBUG|INFO|WARN|ERROR|CRIT) with color
+           %v - Level (debug|info|warn|error|crit) with color
+           %C - full caller
+           %c - trimmed caller
+           %M - Message
+           %F - Fields
+           %S - Stack always last
+           It ignores unknown format strings (and removes them)
+           Recommended: "[%T] [%L] (%c) %M %F %S"
+        -->
+        <formatter>[%T] [%L] (%c) %M %F %S</formatter>
+        <!--stdout|file|multi_file-->
+        <writer>file</writer>
+        <writer_config>
+            <filename>test.log</filename>
+            <use_buf>false</use_buf>
+            <daily>true</daily>
+            <max_days>7</max_days>
+            <max_hours>168</max_hours>
+            <rotate>true</rotate>
+            <max_lines>100K</max_lines>
+            <max_size>10M</max_size>
+            <max_files>999</max_files>
+        </writer_config>
+    </backends>
+</config>
